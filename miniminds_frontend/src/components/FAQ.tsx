@@ -28,6 +28,27 @@ const FAQ = () => {
       question: "Is MiniMinds safe for children?",
       answer: "Yes! We prioritize safety with parent-controlled accounts, monitored interactions, and age-appropriate content to ensure a secure learning environment.",
     },
+    {
+  question: "Can MiniMinds be used by parents who homeschool their children?",
+  answer: "Absolutely! MiniMinds provides structured lessons, progress tracking, and curriculum management tools, making it a perfect companion for homeschooling families.",
+},
+{
+  question: "Do I need internet access to use MiniMinds?",
+  answer: "Yes, MiniMinds is a web-based platform. While some features may support offline use in the future, consistent internet access ensures full functionality and real-time updates.",
+},
+{
+  question: "Can I track my child's progress as a parent?",
+  answer: "Yes! MiniMinds offers a parent dashboard where you can view real-time reports, receive alerts, and monitor your child’s performance and learning journey.",
+},
+{
+  question: "How do institutions or schools integrate with MiniMinds?",
+  answer: "Institutions can create profiles, manage classes, assign teachers, and get performance insights. Integration is simple, and our team provides onboarding support for schools.",
+},
+{
+  question: "Can teachers or students join MiniMinds without being part of an institution?",
+  answer: "Yes! Both teachers and students can sign up independently. While institutions provide structured environments, individuals can access personalized tools, learning dashboards, and track progress on their own.",
+},
+
   ];
 
   return (
