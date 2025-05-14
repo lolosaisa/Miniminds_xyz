@@ -48,6 +48,11 @@ const FAQ = () => {
   question: "Can teachers or students join MiniMinds without being part of an institution?",
   answer: "Yes! Both teachers and students can sign up independently. While institutions provide structured environments, individuals can access personalized tools, learning dashboards, and track progress on their own.",
 },
+{
+  question: "How does MiniMinds ensure transparency and impact for donors?",
+  answer: "Donors can view real-time reports on how funds are being used, access anonymized performance data, and support specific programs, regions, or student groups through our transparent impact dashboards.",
+},
+
 
   ];
 
