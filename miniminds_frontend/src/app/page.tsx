@@ -1,3 +1,5 @@
+"use client";
+
 import Navigation from "@/components/Navigation";
 import LoginSection from "@/components/LoginSection";
 import Hero from "@/components/Hero";
