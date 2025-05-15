@@ -70,7 +70,7 @@ const Hero = () => {
           >
             <div className="relative">
               <img
-                src="/lovable-uploads/9d06185e-e1c8-472d-b239-493176530f2a.png"
+                src="/hero.png"
                 alt="MiniMinds Learning Dashboard"
                 className="rounded-2xl shadow-xl relative z-10 animate-float"
               />

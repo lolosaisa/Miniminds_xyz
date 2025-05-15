@@ -89,7 +89,7 @@ const InstitutionHero = ({ onDemoLogin }: InstitutionHeroProps) => {
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-xl" />
               <div className="relative bg-white p-4 rounded-3xl shadow-lg overflow-hidden">
                 <img 
-                  src="/lovable-uploads/9d06185e-e1c8-472d-b239-493176530f2a.png" 
+                  src="/hero.png" 
                   alt="Institution dashboard preview" 
                   className="w-full h-auto rounded-2xl"
                 />

@@ -10,7 +10,7 @@ const FAQ = () => {
   const faqs = [
     {
       question: "What age groups is MiniMinds suitable for?",
-      answer: "MiniMinds is designed for children aged 5-17, with content tailored to different age groups: 5-8, 9-12, and 13-17 years old.",
+      answer: "MiniMinds is designed for children aged 5-17, with content tailored to different age groups: 5-8, 9-12, and 13-17 years old. INSTITUTIONS with students older that the age specified can still sign in and use the platform.",
     },
     {
       question: "How does the AI-powered learning work?",
@@ -30,7 +30,7 @@ const FAQ = () => {
     },
     {
   question: "Can MiniMinds be used by parents who homeschool their children?",
-  answer: "Absolutely! MiniMinds provides structured lessons, progress tracking, and curriculum management tools, making it a perfect companion for homeschooling families.",
+  answer: "Absolutely! MiniMinds provides structured lessons, progress tracking, and curriculum management tools, making it a perfect companion for homeschooling families as well as giving the families and freedom to upload learning resources.",
 },
 {
   question: "Do I need internet access to use MiniMinds?",

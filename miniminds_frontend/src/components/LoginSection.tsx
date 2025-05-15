@@ -76,7 +76,7 @@ const LoginSection = () => {
           className="w-full md:w-1/2 flex justify-center"
         >
           <motion.img
-            src="/lovable-uploads/e12761a8-95e5-4e9b-b398-156ad1fdb195.png"
+            src="/login.png"
             alt="Happy student character"
             className="w-64 md:w-80 drop-shadow-2xl"
             animate={{ y: [0, -15, 0] }}

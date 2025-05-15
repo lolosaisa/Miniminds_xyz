@@ -3,7 +3,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import InstitutionHero from "@/components/InstitutionHero";
+import InstitutionHero from "@/components/institution";
 import RegistrationForm from "@/components/RegistrationForm";
 import InstitutionDashboard from "@/components/InstitutionDashboard";
 //import { toast } from "@/components/ui/sonner";

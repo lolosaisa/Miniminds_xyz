@@ -1,5 +1,6 @@
 "use client";
 
+import "./globals.css";
 import Navigation from "@/components/Navigation";
 import LoginSection from "@/components/LoginSection";
 import Hero from "@/components/Hero";
