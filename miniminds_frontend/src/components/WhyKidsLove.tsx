@@ -26,10 +26,10 @@ const WhyKidsLove = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-white via-[#F1F0FB] to-white relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-br from-white via-[#dad9e4] to-white relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-primary/5 rounded-full filter blur-3xl -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-72 h-72 bg-secondary/5 rounded-full filter blur-3xl translate-x-1/2 translate-y-1/2" />
+      <div className="absolute bottom-0 right-0 w-72 h-72 bg-[hsl(var(--secondary/5)] rounded-full filter blur-3xl translate-x-1/2 translate-y-1/2" />
       
       <div className="container mx-auto px-4 relative">
         <motion.div
@@ -38,7 +38,7 @@ const WhyKidsLove = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold bg-gradient-to-r from-secondary via-primary to-accent bg-clip-text text-transparent mb-4">
+          <h2 className="text-4xl font-bold bg-gradient-to-r from-[#5682bb] via-green-400 to-orange-300 bg-clip-text text-transparent mb-4">
             Why Kids Love MiniMinds ❤️
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">

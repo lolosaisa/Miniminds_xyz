@@ -43,7 +43,7 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-br from-[#F1F0FB] via-white to-[#FFDEE2]">
+    <section className="py-16 bg-gradient-to-br from-[#d8d8d8] via-white to-[#fcdade]">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -51,7 +51,7 @@ const FeaturesSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold bg-gradient-to-r from-secondary via-primary to-accent bg-clip-text text-transparent mb-4">
+          <h2 className="text-4xl font-bold text-gradient bg-clip-text text-transparent mb-4">
             Explore Our Features ✨
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">

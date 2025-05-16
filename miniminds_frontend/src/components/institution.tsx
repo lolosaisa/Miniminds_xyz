@@ -12,7 +12,7 @@ const InstitutionHero = ({ onDemoLogin }: InstitutionHeroProps) => {
   };
 
   return (
-    <div className="relative bg-gradient-to-b from-[#E6EFFF] to-white py-24 md:py-32 overflow-hidden">
+    <div className="relative bg-gradient-to-b from-[#E6EFFF] to-white py-24 md:py-3 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl -translate-y-1/2" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-y-1/2" />
