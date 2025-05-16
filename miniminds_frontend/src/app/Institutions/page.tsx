@@ -1,7 +1,6 @@
-"use client";
-
+"use client"
 import { useState } from "react";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import InstitutionHero from "@/components/institution";

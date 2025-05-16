@@ -16,5 +16,8 @@
     "hardhat": "^2.24.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "smartcontracts": "file:"
   }
 }
