@@ -17,7 +17,7 @@ const registerInstitution = async (req, res) => {
       return res.status(400).json({ message: 'Institution with this email or phone already exists' });
     }
 
-    // Create blockchain account
+    // Create blockchain account with on-chain transaction
     const blockchainAccount = await createBlockchainAccount(phone);
 
     // Create new institution
@@ -42,6 +42,7 @@ const registerInstitution = async (req, res) => {
         address,
         institutionType,
         blockchainAddress: blockchainAccount.address,
+        transactionHash: blockchainAccount.transactionHash,
       },
     });
   } catch (error) {
