@@ -4,11 +4,13 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <div className="relative overflow-hidden bg-gradient-to-br from-accent/20 via-primary/20 to-secondary/20 min-h-[600px] flex items-center">
+   <div className="relative overflow-hidden bg-gradient-to-br from-[hsl(var(--accent)/0.2)] via-[hsl(var(--primary)/0.2)] to-[hsl(var(--secondary)/0.2)] min-h-[600px] flex items-center">
+
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-4 -right-4 w-72 h-72 bg-secondary/30 rounded-full filter blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-8 -left-8 w-72 h-72 bg-accent/30 rounded-full filter blur-3xl animate-pulse delay-700"></div>
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-primary/20 rounded-full filter blur-3xl animate-pulse delay-500"></div>
+        <div className="absolute -top-4 -right-4 w-72 h-72 bg-[hsl(var(--secondary)/0.3)] rounded-full filter blur-3xl animate-pulse"></div>
+
+        <div className="absolute -bottom-8 -left-8 w-72 h-72 bg-[hsl(var(--accent/0.3)] rounded-full filter blur-3xl animate-pulse delay-700"></div>
+        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-[hsl(var(--primary/0.2)] rounded-full filter blur-3xl animate-pulse delay-500"></div>
       </div>
       <div className="container mx-auto px-4 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -28,10 +30,10 @@ const Hero = () => {
               className="text-4xl md:text-6xl font-bold"
             >
               Welcome to{" "}
-              <span className="bg-gradient-to-r from-secondary via-primary to-accent bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-600 via-green-500  via-yellow-400   to-yellow-500 via-green-500 to-purple-500 bg-clip-text text-transparent">
                 Mini
               </span>
-              <span className="bg-gradient-to-r from-accent via-primary to-secondary bg-clip-text text-transparent">
+              <span className=" text-gradient ">
                 Minds
               </span>
             </motion.h1>
@@ -49,14 +51,16 @@ const Hero = () => {
               transition={{ delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg group">
+              <Button size="lg" 
+              variant= "outline" 
+              className="bg-green-500 text-white hover:bg-green-400 text-lg group">
                 Start Learning
                 <span className="ml-2 group-hover:rotate-12 transition-transform">🎮</span>
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-secondary text-secondary hover:bg-secondary hover:text-white text-lg group"
+                className="border-[hsl(var(--secondary)] text-purple-600 hover:bg-[hsl(var(--secondary) hover:text-white text-lg group"
               >
                 Become a Teacher
                 <span className="ml-2 group-hover:rotate-12 transition-transform">📚</span>
