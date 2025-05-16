@@ -12,7 +12,7 @@ import DonateSection from "@/components/DonateSection";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 //import { Toaster } from "@/components/ui/sonner";
-import { toast } from "sonner";
+//import { toast } from "sonner";
 //import type { ToastProps } from "@/components/ui/sonner";
 import { useToast } from "@/hooks/use-toast"; 
 import { useEffect } from "react";

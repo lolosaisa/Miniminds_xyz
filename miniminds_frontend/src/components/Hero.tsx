@@ -1,4 +1,4 @@
-
+/* eslint-disable @next/next/no-img-element */
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
