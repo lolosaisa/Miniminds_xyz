@@ -176,7 +176,7 @@ export default function AdminDashboard() {
 
       {/* Main Content */}
       <div className="flex-1 flex-col">
-        <div className="bg-white rounded-3xl m-4 p-6 flex-1 overflow-auto">
+        <div className="bg-white p-6 flex-1 overflow-auto">
           {/* Header */}
           <div className="flex justify-between items-center mb-8">
             <div className="flex items-center">

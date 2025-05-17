@@ -1,6 +1,21 @@
 const express = require('express');
 const { check } = require('express-validator');
-const { registerInstitution, getInstitution, verifyToken } = require('../controllers/institutionController');
+const { 
+  registerInstitution, 
+  getInstitution, 
+  verifyToken, 
+  addStudent, 
+  updateStudent, 
+  deleteStudent, 
+  addTeacher, 
+  updateTeacher, 
+  deleteTeacher, 
+  manageStemAdmin,
+  getAllStudents,
+  getAllTeachers 
+} = require('../controllers/institutionController');
+const { validateInstitution, validateStudent, validateTeacher, validateStemAdmin } = require('../middleware/validate');
+
 const router = express.Router();
 
 router.post(
@@ -16,5 +31,14 @@ router.post(
 );
 
 router.get('/:id', verifyToken, getInstitution);
+router.post('/students', verifyToken, validateStudent, addStudent);
+router.put('/students/:id', verifyToken, validateStudent, updateStudent);
+router.delete('/students/:id', verifyToken, deleteStudent);
+router.post('/teachers', verifyToken, validateTeacher, addTeacher);
+router.put('/teachers/:id', verifyToken, validateTeacher, updateTeacher);
+router.delete('/teachers/:id', verifyToken, deleteTeacher);
+router.post('/stem-admin', verifyToken, validateStemAdmin, manageStemAdmin);
+router.get('/students', verifyToken, getAllStudents);
+router.get('/teachers', verifyToken, getAllTeachers);
 
 module.exports = router;
