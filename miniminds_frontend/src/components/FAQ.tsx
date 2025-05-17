@@ -38,7 +38,7 @@ const FAQ = () => {
 },
 {
   question: "Can I track my child's progress as a parent?",
-  answer: "Yes! MiniMinds offers a parent dashboard where you can view real-time reports, receive alerts, and monitor your child’s performance and learning journey.",
+  answer: "Yes! MiniMinds offers a parent dashboard where you can view real-time reports, receive alerts, and monitor your childs performance and learning journey.",
 },
 {
   question: "How do institutions or schools integrate with MiniMinds?",
@@ -69,7 +69,7 @@ const FAQ = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Got questions? We've got answers! Here are some common questions about MiniMinds.
+            Got questions? We got answers! Here are some common questions about MiniMinds.
           </p>
         </motion.div>
 

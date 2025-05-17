@@ -1,4 +1,4 @@
-
+/* eslint-disable @next/next/no-img-element */
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen, Users, School } from "lucide-react";
