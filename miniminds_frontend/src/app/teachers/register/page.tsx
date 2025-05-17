@@ -1,130 +1,60 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import axios from "axios";
-import Cookies from "js-cookie";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
-
-// Utility function to get session
-const getSession = () => {
-  const authToken = Cookies.get("auth_token");
-  const institutionId = Cookies.get("institution_id");
-
-  if (authToken && institutionId) {
-    return {
-      data: {
-        authToken,
-        institutionId,
-      },
-    };
-  }
-  return { data: null };
-};
-
-export default function InstitutionRegistration() {
+export default function TeacherRegistration() {
   const router = useRouter();
   const [formData, setFormData] = useState({
-    institutionName: "",
+    fullName: "",
     email: "",
     phone: "",
-    address: "",
-    institutionType: "",
+    password: "",
+    subject: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [progressMessage, setProgressMessage] = useState("");
-  const [sessionState, setSessionState] = useState(getSession()); // Initialize session state
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSelectChange = (value: string) => {
-    setFormData({ ...formData, institutionType: value });
+    setFormData({ ...formData, subject: value });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setProgress(0);
-    setProgressMessage("Abstracting your account...");
 
     try {
-      setProgress(20);
-      setProgressMessage("Validating institution details...");
-
       const response = await axios.post(
-        `http://localhost:5000/api/institutions/register`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/teachers/register`,
         formData,
         { timeout: 30000 }
       );
 
-      setProgress(60);
-      setProgressMessage("Encrypting on Base blockchain...");
-
-      // Save session data in cookies
-      Cookies.set("auth_token", response.data.token, {
-        expires: 1 / 24, // 1 hour, matching JWT expiry
-        secure: process.env.NODE_ENV === "production",
-        sameSite: "strict",
-      });
-      Cookies.set("institution_id", response.data.institution.id, {
-        expires: 1 / 24,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: "strict",
-      });
-
-      // Update session state
-      const newSession = {
-        data: {
-          authToken: response.data.token,
-          institutionId: response.data.institution.id,
-        },
-      };
-      setSessionState(newSession);
-
-      setProgress(100);
-      setProgressMessage("Institution registered successfully!");
-
-      toast.success("Institution registered!", {
-        description: (
-          <div>
-            <a
-              href={`https://sepolia.basescan.org/tx/${response.data.transactionHash}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline text-orange-500"
-            >
-              View on BaseScan
-            </a>
-          </div>
-        ),
+      toast.success("Teacher account created!", {
+        description: "Welcome to MiniMinds!",
       });
 
       setTimeout(() => {
-        router.push("/Institutions");
-      }, 2000);
+        router.push("/login");
+      }, 1500);
     } catch (error: any) {
-      setProgress(0);
       setIsSubmitting(false);
-      const errorMessage = error.response?.data?.message || error.message || "Failed to register institution";
+      const errorMessage = error.response?.data?.message || error.message || "Failed to register teacher";
       console.error("Registration error:", errorMessage, error);
       toast.error("Error", {
         description: errorMessage,
       });
     }
   };
-
-  // Optional: Log session for debugging
-  useEffect(() => {
-    console.log("Current session:", sessionState);
-  }, [sessionState]);
 
   return (
     <div className="animated-background">
@@ -145,20 +75,20 @@ export default function InstitutionRegistration() {
             </div>
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 text-purple-900">
-            Register Your Institution
+            Register as a Teacher
           </h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <Label htmlFor="institutionName" className="text-sm sm:text-base">Institution Name</Label>
+              <Label htmlFor="fullName" className="text-sm sm:text-base">Full Name</Label>
               <Input
-                id="institutionName"
-                name="institutionName"
+                id="fullName"
+                name="fullName"
                 type="text"
-                value={formData.institutionName}
+                value={formData.fullName}
                 onChange={handleChange}
                 required
                 className="mt-1"
-                placeholder="e.g., Sunshine Academy"
+                placeholder="e.g., Jane Doe"
               />
             </div>
             <div>
@@ -171,7 +101,7 @@ export default function InstitutionRegistration() {
                 onChange={handleChange}
                 required
                 className="mt-1"
-                placeholder="e.g., admin@school.edu"
+                placeholder="e.g., jane@miniminds.edu"
               />
             </div>
             <div>
@@ -188,28 +118,28 @@ export default function InstitutionRegistration() {
               />
             </div>
             <div>
-              <Label htmlFor="address" className="text-sm sm:text-base">Address</Label>
+              <Label htmlFor="password" className="text-sm sm:text-base">Password</Label>
               <Input
-                id="address"
-                name="address"
-                type="text"
-                value={formData.address}
+                id="password"
+                name="password"
+                type="password"
+                value={formData.password}
                 onChange={handleChange}
                 required
                 className="mt-1"
-                placeholder="e.g., 123 Learning St, City"
+                placeholder="Enter a secure password"
               />
             </div>
             <div>
-              <Label htmlFor="institutionType" className="text-sm sm:text-base">Institution Type</Label>
+              <Label htmlFor="subject" className="text-sm sm:text-base">Primary Subject</Label>
               <Select onValueChange={handleSelectChange} required>
                 <SelectTrigger className="mt-1">
-                  <SelectValue placeholder="Select type" />
+                  <SelectValue placeholder="Select subject" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="primary">Primary School</SelectItem>
-                  <SelectItem value="secondary">Secondary School</SelectItem>
-                  <SelectItem value="college">College/University</SelectItem>
+                  <SelectItem value="math">Mathematics</SelectItem>
+                  <SelectItem value="science">Science</SelectItem>
+                  <SelectItem value="coding">Coding</SelectItem>
                   <SelectItem value="other">Other</SelectItem>
                 </SelectContent>
               </Select>
@@ -219,7 +149,7 @@ export default function InstitutionRegistration() {
               disabled={isSubmitting}
               className="w-full bg-orange-500 text-white hover:bg-orange-500/90 cursor-pointer text-sm sm:text-base"
             >
-              {isSubmitting ? "Registering..." : "Register Institution"}
+              {isSubmitting ? "Registering..." : "Register as Teacher"}
             </Button>
           </form>
           <Button
@@ -229,21 +159,8 @@ export default function InstitutionRegistration() {
           >
             <Link href="/">Back to Home</Link>
           </Button>
-          {isSubmitting && (
-            <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-              <div className="bg-white p-6 rounded-lg text-center">
-                <p className="text-lg font-semibold">{progressMessage}</p>
-                <div className="w-full bg-gray-200 rounded-full h-2.5 mt-4">
-                  <div
-                    className="bg-orange-500 h-2.5 rounded-full"
-                    style={{ width: `${progress}%` }}
-                  ></div>
-                </div>
-              </div>
-            </div>
-          )}
           <p className="mt-4 text-center text-sm sm:text-base text-muted-foreground">
-            Already registered?{" "}
+            Already have an account?{" "}
             <Link href="/login" className="text-orange-500 hover:underline">
               Sign in
             </Link>

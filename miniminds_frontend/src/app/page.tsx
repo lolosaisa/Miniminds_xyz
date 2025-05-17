@@ -81,7 +81,7 @@ export default function LandingPage() {
               <Link href="/signup">Start Learning</Link>
             </Button>
             <Button size="lg" variant="outline" asChild className="border-white text-white hover:bg-white/10 cursor-pointer text-sm sm:text-base">
-              <Link href="/signup">Become a Teacher</Link>
+              <Link href="/teachers/register">Become a Teacher</Link>
             </Button>
           </div>
 
@@ -176,14 +176,14 @@ export default function LandingPage() {
                 description: "Register your school, add streams, assign teachers, and view real-time dashboards.",
                 icon: <School className="h-6 sm:h-8 w-6 sm:w-8 text-purple-600" />,
                 cta: "Partner Now",
-                link: "/institutions/register",
+                link: "/Institutions/register",
               },
               {
                 title: "Teachers",
                 description: "Manage classrooms, assign tasks, and get AI-powered support for engaging lessons.",
                 icon: <BookOpen className="h-6 sm:h-8 w-6 sm:w-8 text-purple-600" />,
                 cta: "Join as Teacher",
-                link: "/signup",
+                link: "/teachers/register",
               },
               {
                 title: "Students",
@@ -288,13 +288,13 @@ export default function LandingPage() {
                 title: "Teachers Start Here! 🎓",
                 description: "Create engaging lessons, track progress, and inspire young minds.",
                 cta: "Join as Teacher",
-                link: "/signup",
+                link: "/teachers/register",
               },
               {
                 title: "Institutions Start Here! 🏫",
                 description: "Partner to bring innovative learning solutions to your organization.",
                 cta: "Partner Now",
-                link: "/institutions/register",
+                link: "/Institutions/register",
               },
             ].map((path, index) => (
               <div key={index} className="flex flex-col items-center text-center p-4 sm:p-6 bg-white rounded-xl shadow-md">
@@ -408,7 +408,7 @@ export default function LandingPage() {
                 </div>
               </div>
               <Button asChild variant="link" className="text-orange-500 hover:text-orange-400 cursor-pointer text-sm sm:text-base">
-                <Link href="/institutions/register">Are you a school or institution? Partner with us →</Link>
+                <Link href="/Institutions/register">Are you a school or institution? Partner with us →</Link>
               </Button>
             </div>
 

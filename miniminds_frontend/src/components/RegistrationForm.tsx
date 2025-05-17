@@ -28,7 +28,6 @@ import {
 } from "@/components/ui/select";
 import { CheckCircle, LoaderCircle } from "lucide-react";
 
-// Form validation schema
 const formSchema = z.object({
   institutionName: z.string().min(2, {
     message: "Institution name must be at least 2 characters.",
@@ -114,6 +113,15 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSuccessfulRegistr
           transactionHash: response.data.institution.transactionHash,
         });
 
+        // Store data in local storage instead of session storage
+        localStorage.setItem('institution_data', JSON.stringify({
+          blockchainAddress: response.data.institution.blockchainAddress,
+          transactionHash: response.data.institution.transactionHash,
+          institutionName: values.institutionName,
+          email: values.email,
+          institutionType: values.institutionType
+        }));
+
         toast({
           title: "Registration submitted!",
           description: (
@@ -124,7 +132,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSuccessfulRegistr
               <br />
               View transaction on{" "}
               <a
-                href={`https://sepolia.basescan.org/tx/${response.data.institution.transactionHash}`}
+                href={`https://sepolia.basescan.org/address/${response.data.institution.blockchainAddress}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline text-blue-600 hover:text-blue-800"
@@ -148,7 +156,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSuccessfulRegistr
           variant: "destructive",
         });
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error(error);
       toast({
         title: "Registration failed",
