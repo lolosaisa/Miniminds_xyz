@@ -1,0 +1,72 @@
+/* Animated background with floating icons */
+.animated-background {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #f3e8ff, #e0f2fe);
+  overflow: hidden;
+}
+
+.animated-background::before,
+.animated-background::after,
+.animated-background .floating-icon {
+  content: '';
+  position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  animation: float 10s infinite ease-in-out;
+}
+
+.animated-background::before {
+  width: 40px;
+  height: 40px;
+  top: 10%;
+  left: 15%;
+  background-image: url('/icons/book-open.svg');
+  animation-delay: 0s;
+}
+
+.animated-background::after {
+  width: 30px;
+  height: 30px;
+  top: 60%;
+  right: 20%;
+  background-image: url('/icons/flask.svg');
+  animation-delay: 2s;
+}
+
+.animated-background .floating-icon:nth-child(1) {
+  width: 35px;
+  height: 35px;
+  top: 30%;
+  left: 70%;
+  background-image: url('/icons/code.svg');
+  animation-delay: 4s;
+}
+
+.animated-background .floating-icon:nth-child(2) {
+  width: 25px;
+  height: 25px;
+  top: 80%;
+  left: 40%;
+  background-image: url('/icons/line-chart.svg');
+  animation-delay: 6s;
+}
+
+@media (max-width: 640px) {
+  .animated-background::before,
+  .animated-background::after,
+  .animated-background .floating-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+}
