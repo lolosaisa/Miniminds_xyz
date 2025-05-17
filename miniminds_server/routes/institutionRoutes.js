@@ -1,6 +1,6 @@
 const express = require('express');
 const { check } = require('express-validator');
-const { registerInstitution } = require('../controllers/institutionController');
+const { registerInstitution, getInstitution } = require('../controllers/institutionController');
 const router = express.Router();
 
 router.post(
@@ -14,5 +14,7 @@ router.post(
   ],
   registerInstitution
 );
+
+router.get('/:id', getInstitution);
 
 module.exports = router;

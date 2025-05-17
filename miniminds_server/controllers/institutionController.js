@@ -51,4 +51,20 @@ const registerInstitution = async (req, res) => {
   }
 };
 
-module.exports = { registerInstitution };
+const getInstitution = async (req, res) => {
+  try {
+    const institutionId = req.params.id;
+    const institution = await Institution.findById(institutionId);
+    if (!institution) {
+      return res.status(404).json({ message: 'Institution not found' });
+    }
+    res.status(200).json(institution);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
+
+
+module.exports = { registerInstitution, getInstitution };
