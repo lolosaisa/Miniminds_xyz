@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -104,6 +104,58 @@ const ProgressBar = ({ value, color = "bg-primary" }: { value: number; color?: s
 
 const InstitutionDashboard = () => {
   const [activeTab, setActiveTab] = useState("classes");
+
+  //set state variables using react to interact with the API
+  type Student = {
+    id: number;
+    name: string;
+    grade: string;
+    status: string;
+    performance: number;
+    subjects: string[];
+  };
+  const [students, setStudents] = useState<Student[]>([]);
+  const [ loading, setLoading]= useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchstudents = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch("/api/students");
+        //setClasses(response.data);
+        if (!response.ok) {
+          throw new Error("Failed to fetch students");
+        }
+        const data = await response.json();
+        console.log("fetched Stusents:", data);
+        setStudents(data);
+      } catch (err: any) {
+        setError(err.message || "Unknown error");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchstudents();
+  }, []);
+
+  //  useEffect(() => {
+  //   const fetchClasses = async () => {
+  //     setLoading(true);
+  //     try {
+  //       const response = await axios.get("https://api.example.com/classes");
+  //       setClasses(response.data); // Adjust based on API response shape
+  //       setError(null);
+  //     } catch (err: any) {
+  //       console.error("Failed to fetch classes:", err);
+  //       setError("Failed to load classes.");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchClasses();
+  // }, []);
 
   return (
     <div className="min-h-screen bg-[#F5F7FB] py-10">
@@ -224,6 +276,9 @@ const InstitutionDashboard = () => {
                   </Table>
                 </div>
               </TabsContent>
+              
+              {loading && <p>Loading classes...</p>}
+              {error && <p className="text-red-500">{error}</p>}
 
               {/* Students Tab */}
               <TabsContent value="students" className="space-y-6">
@@ -253,7 +308,7 @@ const InstitutionDashboard = () => {
                       </TableRow>
                     </TableHeader>
                     <TableBody>
-                      {mockStudents.map((student) => (
+                      {students.map((student) => (
                         <TableRow key={student.id}>
                           <TableCell className="font-medium">{student.name}</TableCell>
                           <TableCell>Grade {student.grade}</TableCell>

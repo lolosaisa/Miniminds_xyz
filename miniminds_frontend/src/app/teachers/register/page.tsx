@@ -161,7 +161,7 @@ export default function TeacherRegistration() {
           </Button>
           <p className="mt-4 text-center text-sm sm:text-base text-muted-foreground">
             Already have an account?{" "}
-            <Link href="/login" className="text-orange-500 hover:underline">
+            <Link href="/" className="text-orange-500 hover:underline">
               Sign in
             </Link>
           </p>
