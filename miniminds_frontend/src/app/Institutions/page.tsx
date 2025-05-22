@@ -9,6 +9,7 @@ import InstitutionHero from "@/components/InstitutionHero";
 import RegistrationForm from "@/components/RegistrationForm";
 import InstitutionDashboard from "@/components/InstitutionDashboard";
 import { useToast } from "@/hooks/use-toast";
+import RegisteredInstitutions from "@/components/RegisteredInstitution";
 
 const Institution = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -38,6 +39,7 @@ const Institution = () => {
         ) : (
           <>
             <InstitutionHero onDemoLogin={handleDemoLogin} />
+            <RegisteredInstitutions />
             <RegistrationForm onSuccessfulRegistration={handleLogin} />
           </>
         )}
