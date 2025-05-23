@@ -52,6 +52,13 @@ interface RegistrationFormProps {
   onSuccessfulRegistration?: () => void;
 }
 
+ const loadingSteps = [
+    "Abstracting your account",
+    "Saving information",
+    "Registering on blockchain",
+  ];
+
+
 const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSuccessfulRegistration }) => {
   const { toast } = useToast();
   const router = useRouter();
@@ -63,12 +70,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSuccessfulRegistr
     transactionHash: string;
   } | null>(null);
 
-  const loadingSteps = [
-    "Abstracting your account",
-    "Saving information",
-    "Registering on blockchain",
-  ];
-
+ 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -158,11 +160,16 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onSuccessfulRegistr
       }
     } catch (error: unknown) {
       console.error(error);
+      let errorMessage = "An error occurred while registering. Please try again.";
+      if (typeof error === "object" && error !== null && "response" in error) {
+        const err = error as { response?: { data?: { message?: string } } };
+        if (err.response?.data?.message) {
+          errorMessage = err.response.data.message;
+        }
+      }
       toast({
         title: "Registration failed",
-        description:
-          error.response?.data?.message ||
-          "An error occurred while registering. Please try again.",
+        description: errorMessage,
         variant: "destructive",
       });
     } finally {

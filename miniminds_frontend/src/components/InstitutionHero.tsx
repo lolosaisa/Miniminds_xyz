@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 interface InstitutionHeroProps {
   onDemoLogin: () => void;
@@ -39,7 +40,7 @@ const InstitutionHero = ({ onDemoLogin }: InstitutionHeroProps) => {
                 </span>
               </h1>
               <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto lg:mx-0">
-                Transform your institution with our comprehensive learning platform designed for today's digital-native students.
+                Transform your institution with our comprehensive learning platform designed for todays digital-native students.
               </p>
             </div>
             
@@ -89,7 +90,7 @@ const InstitutionHero = ({ onDemoLogin }: InstitutionHeroProps) => {
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-xl" />
               <div className="relative bg-white p-4 rounded-3xl shadow-lg overflow-hidden">
-                <img 
+                <Image
                   src="/hero.png" 
                   alt="Institution dashboard preview" 
                   className="w-full h-auto rounded-2xl"
@@ -97,7 +98,7 @@ const InstitutionHero = ({ onDemoLogin }: InstitutionHeroProps) => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-2xl flex items-end p-6">
                   <div className="text-white">
                     <p className="font-medium">Modern dashboard for institutions</p>
-                    <p className="text-sm opacity-80">Monitor student progress in real-time</p>
+                    <p className="text-sm opacity-80">Monitor student progress in real time</p>
                   </div>
                 </div>
               </div>

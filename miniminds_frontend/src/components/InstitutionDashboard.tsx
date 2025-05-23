@@ -4,7 +4,7 @@
 // File: /app/dashboard/InstitutionDashboard.tsx
 
 'use client';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";

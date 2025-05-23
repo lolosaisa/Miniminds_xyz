@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import axios from "axios";
+//import axios from "axios";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -32,12 +32,9 @@ export default function TeacherRegistration() {
     e.preventDefault();
     setIsSubmitting(true);
 
+    let errorMessage = "Failed to register teacher";
+
     try {
-      const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/teachers/register`,
-        formData,
-        { timeout: 30000 }
-      );
 
       toast.success("Teacher account created!", {
         description: "Welcome to MiniMinds!",
@@ -46,16 +43,19 @@ export default function TeacherRegistration() {
       setTimeout(() => {
         router.push("/login");
       }, 1500);
-    } catch (error: any) {
+    } catch (error: unknown) {
       setIsSubmitting(false);
-      const errorMessage = error.response?.data?.message || error.message || "Failed to register teacher";
+
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      }
       console.error("Registration error:", errorMessage, error);
       toast.error("Error", {
         description: errorMessage,
       });
     }
-  };
-
+  }
+  
   return (
     <div className="animated-background">
       <div className="floating-icon"></div>
@@ -169,4 +169,4 @@ export default function TeacherRegistration() {
       </div>
     </div>
   );
-}
+  }

@@ -1,6 +1,7 @@
-/* eslint-disable @next/next/no-img-element */
+
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const Hero = () => {
   return (
@@ -74,7 +75,7 @@ const Hero = () => {
             className="relative hidden md:block"
           >
             <div className="relative">
-              <img
+              <Image
                 src="/hero.png"
                 alt="MiniMinds Learning Dashboard"
                 className="rounded-2xl shadow-xl relative z-10 animate-float"

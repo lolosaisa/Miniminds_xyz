@@ -6,7 +6,7 @@ type TopbarProps = {
   setActiveTab: (tab: string) => void;
 };
 
-const Topbar = ({ activeTab, setActiveTab }: TopbarProps) => {
+const Topbar = ({  }: TopbarProps) => {
   return (
     <div className="flex justify-between items-center mb-6 px-4 sm:px-0">
       <h1 className="text-2xl font-bold text-gray-800">Institution Dashboard</h1>

@@ -24,7 +24,7 @@ const Why = () => {
         <p className="text-lg text-gray-600">
           MiniMinds is a decentralized education infrastructure designed to empower students, teachers, 
           institutions, and guardians by enabling transparent, personalized, and incentive-driven learning 
-          experiences — starting in under-resourced and high-volume learning environments.
+          experiences starting in under resourced and high volume learning environments.
         </p>
       </motion.div>
 
@@ -47,8 +47,8 @@ const Why = () => {
             The value exchange in education remains opaque, with little incentive for innovation.
           </p> */}
           <p className="text-gray-700 text-lg italic border-l-4 border-secondary pl-4">
-            "There's no unified, collaborative platform where teachers, institutions, and students can co-create and 
-            personalize education. And there's no way to transparently measure impact or reward great content."
+            There is no unified, collaborative platform where teachers, institutions, and students can co-create and 
+            personalize education. And there is no way to transparently measure impact or reward great content.
           </p>
         </motion.div>
 
@@ -70,9 +70,9 @@ const Why = () => {
             recognition and rewards through NFTs and impact scores that reflect their contribution to education.
           </p> */}
           <p className="text-gray-700 text-lg italic border-l-4 border-primary pl-4">
-            "MiniMinds gives teachers AI tools to create smart, gamified content — and assigns it based on learner 
+            MiniMinds gives teachers AI tools to create smart, gamified content &mdash; and assigns it based on learner 
             performance. Students track their learning journeys with ownership on-chain. Teachers get rewarded for 
-            engagement through NFTs and on-chain impact scores. Institutions get real-time dashboards powered by Web3 and AI."
+            engagement through NFTs and on-chain impact scores. Institutions get real-time dashboards powered by Web3 and AI.
           </p>
         </motion.div>
       </div>
