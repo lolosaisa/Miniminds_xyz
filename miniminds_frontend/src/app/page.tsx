@@ -13,6 +13,7 @@ import Footer from "@/components/Footer";
 import JoinSection from "@/components/JoinSection";
 import { useToast } from "@/hooks/use-toast";
 import { useEffect } from "react";
+import Why from "@/components/Why";
 
 const Index = () => {
   const { toast } = useToast();
@@ -32,12 +33,15 @@ const Index = () => {
       <Navigation />
       <main className="w-full">
         <Hero />
-        <WhyKidsLove />
-        <HowToUseSection />
+        <Why />
+       
+       
         <div className="relative">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-muted/30 pointer-events-none" aria-hidden="true" />
           <FeaturesSection />
         </div>
+         <WhyKidsLove />
+         <HowToUseSection />
         <JoinSection />
         <GetStartedSection />
         <div className="relative">

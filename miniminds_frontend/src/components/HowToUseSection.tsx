@@ -61,7 +61,7 @@ const HowToUseSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold">
-            <span className="bg-gradient-to-r from-secondary via-primary to-accent bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-green-400 via-purple-300 to-orange-300 bg-clip-text text-transparent">
               🚀 What MiniMinds Does
             </span>
           </h2>
@@ -72,9 +72,9 @@ const HowToUseSection = () => {
 
         {/* Timeline - Desktop */}
         <div className="hidden lg:block relative">
-          <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-secondary via-primary to-accent transform -translate-x-1/2 rounded-full" />
+          <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-600 via-green-400 to-yellow-300 transform -translate-x-1/2 rounded-full" />
 
-          <div className="space-y-24 relative z-10">
+          <div className="space-y-10 relative z-10">
             {journeySteps.map((step, index) => (
               <motion.div
                 key={index}
