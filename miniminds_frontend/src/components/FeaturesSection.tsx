@@ -43,7 +43,9 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-br from-[#d8d8d8] via-white to-[#fcdade]">
+    <section 
+    id='FeaturesSection'
+    className="py-16 bg-gradient-to-br from-[#d8d8d8] via-white to-[#fcdade]">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -3,60 +3,98 @@ import { motion } from "framer-motion";
 import { Building, Users, MapPin, GraduationCap } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { useState } from "react";
+//import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
+
 
 // Sample data - in a real app, this would come from your database
-const institutionsData = [
-  {
-    id: 1,
-    name: "Brightside Academy",
-    location: "New York, USA",
-    studentCount: 1250,
-    type: "Primary",
-    established: 2005,
-    website: "brightsideacademy.edu"
-  },
-  {
-    id: 2,
-    name: "Tech Future College",
-    location: "San Francisco, USA",
-    studentCount: 3750,
-    type: "Tertiary",
-    established: 1998,
-    website: "techfuture.edu"
-  },
-  {
-    id: 3,
-    name: "Global Learning Institute",
-    location: "London, UK",
-    studentCount: 2800,
-    type: "Secondary",
-    established: 2010,
-    website: "globallearning.org"
-  },
-  {
-    id: 4,
-    name: "Innovation School",
-    location: "Tokyo, Japan",
-    studentCount: 950,
-    type: "Primary",
-    established: 2015,
-    website: "innovation-school.jp"
-  },
-  {
-    id: 5,
-    name: "Eduverse Academy",
-    location: "Toronto, Canada",
-    studentCount: 1650,
-    type: "Secondary",
-    established: 2007,
-    website: "eduverse.ca"
-  }
-];
+// const institutionsData = [
+//   {
+//     id: 1,
+//     name: "Brightside Academy",
+//     location: "New York, USA",
+//     studentCount: 1250,
+//     type: "Primary",
+//     established: 2005,
+//     website: "brightsideacademy.edu"
+//   },
+//   {
+//     id: 2,
+//     name: "Tech Future College",
+//     location: "San Francisco, USA",
+//     studentCount: 3750,
+//     type: "Tertiary",
+//     established: 1998,
+//     website: "techfuture.edu"
+//   },
+//   {
+//     id: 3,
+//     name: "Global Learning Institute",
+//     location: "London, UK",
+//     studentCount: 2800,
+//     type: "Secondary",
+//     established: 2010,
+//     website: "globallearning.org"
+//   },
+//   {
+//     id: 4,
+//     name: "Innovation School",
+//     location: "Tokyo, Japan",
+//     studentCount: 950,
+//     type: "Primary",
+//     established: 2015,
+//     website: "innovation-school.jp"
+//   },
+//   {
+//     id: 5,
+//     name: "Eduverse Academy",
+//     location: "Toronto, Canada",
+//     studentCount: 1650,
+//     type: "Secondary",
+//     established: 2007,
+//     website: "eduverse.ca"
+//   }
+// ];
+
+type Institution = {
+  id: number;
+  name: string;
+  location: string;
+  studentCount: number;
+  type: string;
+  established: number;
+  website: string;
+};
 
 const RegisteredInstitutions = () => {
   const [viewMode, setViewMode] = useState<'card' | 'table'>('card');
+
+  const [institutions, setInstitutions] = useState<Institution[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+useEffect(() => {
+  const fetchInstitutions = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/api/institutions"
+); 
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const data = await response.json();
+      console.log(data);
+      setInstitutions(data);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "An unknown error occurred");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchInstitutions();
+}, []);
+
   
   return (
     <section className="py-16 bg-gradient-to-br from-accent/10 via-primary/10 to-secondary/10 relative overflow-hidden">
@@ -104,7 +142,7 @@ const RegisteredInstitutions = () => {
         
         {viewMode === 'card' ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-            {institutionsData.map((institution) => (
+            {institutions.map((institution) => (
               <motion.div
                 key={institution.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -183,7 +221,7 @@ const RegisteredInstitutions = () => {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {institutionsData.map((institution) => (
+                  {institutions.map((institution) => (
                     <TableRow key={institution.id}>
                       <TableCell className="font-medium">{institution.name}</TableCell>
                       <TableCell>{institution.location}</TableCell>

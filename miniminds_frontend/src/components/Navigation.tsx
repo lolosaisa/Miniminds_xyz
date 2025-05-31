@@ -3,12 +3,15 @@
 
 import React from "react";
 import Link from "next/link";
+//import { Router } from "next/router";
+import { useRouter } from "next/navigation";
+
 
 const topNavItems = [
   { name: "Why Us", href: "#why" },
-  { name: "How It Works", href: "#HowToUseSection" },
-  { name: "Features", href: "#FeaturesSection" },
-  { name: "Get Started", href: "#get-started" },
+  { name: "How It Works", href: "#HowItWorks" },
+  { name: "Features", href: "#FeaturesSection " },
+  { name: "Get Started", href: "#GetStartedSection" },
   { name: "FAQ", href: "#faq" },
 ];
 
@@ -19,6 +22,7 @@ const roleLinks = [
 ];
 
 const Navigation = () => {
+  const router = useRouter();
   return (
     <div className="w-full">
       {/* Top Navbar - Section links */}
@@ -40,7 +44,10 @@ const Navigation = () => {
               ))}
             </div>
             <div className="flex items-center space-x-4">
-              <button className="bg-green-400 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-green-500 transition-colors">
+              <button className="bg-green-400 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-green-500 transition-colors"
+               onClick ={()=> router.push('#GetStartedSection')}
+              >
+             
                 Sign Up
               </button>
               <button className="bg-purple-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-purple-600 transition-colors">

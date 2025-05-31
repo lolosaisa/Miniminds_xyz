@@ -6,7 +6,7 @@ import Hero from "@/components/Hero";
 import WhyKidsLove from "@/components/WhyKidsLove";
 import FeaturesSection from "@/components/FeaturesSection";
 import GetStartedSection from "@/components/GetStartedSection";
-import HowToUseSection from "@/components/HowToUseSection";
+import HowToUseSection from "@/components/HowItWorks";
 import DonateSection from "@/components/DonateSection";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";

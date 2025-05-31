@@ -47,7 +47,9 @@ const HowToUseSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-white via-[#F1F0FB] to-white relative overflow-hidden">
+    <section 
+    id="HowItWorks"
+    className="py-24 bg-gradient-to-br from-white via-[#F1F0FB] to-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-primary/5 rounded-full filter blur-3xl -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-secondary/5 rounded-full filter blur-3xl translate-x-1/2 translate-y-1/2" />

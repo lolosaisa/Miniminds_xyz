@@ -92,6 +92,8 @@ const InstitutionHero = ({ onDemoLogin }: InstitutionHeroProps) => {
               <div className="relative bg-white p-4 rounded-3xl shadow-lg overflow-hidden">
                 <Image
                   src="/hero.png" 
+                  width={800}
+                  height={600}
                   alt="Institution dashboard preview" 
                   className="w-full h-auto rounded-2xl"
                 />

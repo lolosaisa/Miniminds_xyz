@@ -7,7 +7,9 @@ import Link from "next/link";
 
 const GetStartedSection = () => {
   return (
-    <section className="py-24 bg-gradient-to-br from-[#FFDEE2] via-white to-[#F2FCE2]">
+    <section 
+    id='GetStartedSection'
+    className="py-24 bg-gradient-to-br from-[#FFDEE2] via-white to-[#F2FCE2]">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -102,7 +104,7 @@ const GetStartedSection = () => {
                 className="bg-accent text-black hover:bg-accent/90 group w-full py-6 text-lg rounded-full"
                 asChild
               >
-                <Link href="/institution">
+                <Link href="/Institutions">
                   Partner Now
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
