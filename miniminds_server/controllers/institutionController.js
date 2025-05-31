@@ -13,6 +13,7 @@ const verifyToken = (req, res, next) => {
   }
 
   try {
+     console.log("Registering institution with body:", req.body);
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.institutionId = decoded.institutionId;
     next();
@@ -110,6 +111,20 @@ const getInstitution = async (req, res) => {
     });
   } catch (error) {
     console.error('Get institution error:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
+// Get all institutions
+const getAllInstitutions = async (req, res) => {
+  try {
+    const institutions = await Institution.find().select('-__v'); // Optional: exclude version key
+    res.status(200).json({
+      message: 'Institutions retrieved successfully',
+      institutions,
+    });
+  } catch (error) {
+    console.error('Get all institutions error:', error);
     res.status(500).json({ message: 'Server error' });
   }
 };
@@ -454,6 +469,7 @@ module.exports = {
   verifyToken,
   registerInstitution,
   getInstitution,
+  getAllInstitutions,
   addStudent,
   updateStudent,
   deleteStudent,

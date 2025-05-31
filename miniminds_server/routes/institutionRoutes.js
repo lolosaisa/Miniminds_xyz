@@ -30,8 +30,11 @@ router.post(
   registerInstitution
 );
 
+router.get('/', verifyToken, getInstitution); 
 router.get('/:id', verifyToken, getInstitution);
-router.post('/students', verifyToken, validateStudent, addStudent);
+//router.post('/students', verifyToken, validateStudent, addStudent); addiong a route for testing without validation
+router.post('/students', addStudent); // For testing without validation
+
 router.put('/students/:id', verifyToken, validateStudent, updateStudent);
 router.delete('/students/:id', verifyToken, deleteStudent);
 router.post('/teachers', verifyToken, validateTeacher, addTeacher);
